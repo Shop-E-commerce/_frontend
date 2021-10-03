@@ -1,0 +1,8 @@
+.dr-currency:hover > ul,
+.dr-language:hover > ul {
+  @apply scale-y-100;
+}
+
+.menu-sticky.animate-slideInDown {
+  @apply block;
+}

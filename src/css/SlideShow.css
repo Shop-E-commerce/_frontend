@@ -1,0 +1,37 @@
+.bg-4 {
+  background-image: url("https://demo.hasthemes.com/kenne-preview/kenne/assets/images/slider/2-1.jpg");
+  @apply text-white;
+}
+
+.bg-5 {
+  background-image: url("https://demo.hasthemes.com/kenne-preview/kenne/assets/images/slider/2-2.jpg");
+  @apply text-primary;
+}
+
+.slide-animation-01 > span {
+  animation-delay: 0.5s;
+}
+.slide-animation-01 > h2 {
+  animation-delay: 1s;
+}
+.slide-animation-01 > p {
+  animation-delay: 1.5s;
+}
+.slide-animation-01 > div > a {
+  animation-delay: 2s;
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+  @apply w-[50px] h-[50px] bg-transparent border border-white rounded-full left-auto right-[5%];
+}
+.swiper-button-prev::after,
+.swiper-button-next::after {
+  @apply text-xl text-white;
+}
+.swiper-button-next {
+  @apply top-auto bottom-1/2 mb-[30px];
+}
+.swiper-button-prev {
+  @apply mt-[auto];
+}

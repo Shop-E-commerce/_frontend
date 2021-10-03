@@ -1,0 +1,11 @@
+.img-hover_effect::before,
+.img-hover_effect::after {
+  content: "";
+  @apply absolute inset-0 duration-500 ease-linear z-[1];
+}
+.img-hover_effect:hover::before {
+  @apply bg-white bg-opacity-30 left-1/2 right-1/2;
+}
+.img-hover_effect:hover::after {
+  @apply bg-white bg-opacity-30 bottom-1/2 top-1/2;
+}
