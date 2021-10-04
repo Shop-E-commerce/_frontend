@@ -1,8 +1,32 @@
 import React from "react";
 import "../css/AppHeader.css";
 import Logo from "../assets/img/logo.png";
-
+import SearchBar from "./SearchBar";
 const AppHeader = () => {
+  // set state
+  const [search, openSearch] = React.useState("");
+
+  window.addEventListener("scroll", checkpageYOffset);
+  window.addEventListener("onload", checkpageYOffset);
+  // add class flex to class menu-sticky when window scroll or window offset > 300
+  function checkpageYOffset() {
+    let menu_sticky = document.querySelector(".menu-sticky");
+    if (window.pageYOffset > 200) {
+      menu_sticky.classList.add("animate-slideInDown");
+    } else {
+      menu_sticky.classList.remove("animate-slideInDown");
+    }
+  }
+
+  function setSearchBar(e) {
+    openSearch(e);
+    if (e === false) {
+      document.querySelector("body").classList.remove("overflow-hidden");
+    } else {
+      document.querySelector("body").classList.add("overflow-hidden");
+    }
+  }
+
   return (
     <header>
       <div className="container">
@@ -337,7 +361,11 @@ const AppHeader = () => {
                     </a>
                   </li>
                   <li className="inline-block mr-4 text-primary hover:text-prihover">
-                    <a href="#searhBar" className="">
+                    <a
+                      href="#searhBar"
+                      className=""
+                      onClick={() => setSearchBar(!search)}
+                    >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         className="h-6 w-6"
@@ -354,45 +382,15 @@ const AppHeader = () => {
                       </svg>
                     </a>
                   </li>
-                  <li className="inline-block text-primary hover:text-prihover">
-                    <a href="#offcanvasMenu" className="">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        className="h-6 w-6"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth="2"
-                          d="M4 6h16M4 12h16M4 18h16"
-                        />
-                      </svg>
-                    </a>
-                  </li>
                 </ul>
               </div>
             </div>
           </div>
         </div>
+        <SearchBar open={search} onClick={() => setSearchBar(!search)} />
       </div>
     </header>
   );
 };
-
-// add class flex to class menu-sticky when window scroll or window offset > 300
-function checkpageYOffset() {
-  let menu_sticky = document.querySelector(".menu-sticky");
-  if (window.pageYOffset > 200) {
-    menu_sticky.classList.add("animate-slideInDown");
-  } else {
-    menu_sticky.classList.remove("animate-slideInDown");
-  }
-}
-window.onload = checkpageYOffset;
-
-window.onscroll = checkpageYOffset;
 
 export default AppHeader;
