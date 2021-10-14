@@ -5,7 +5,7 @@ import { far } from "@fortawesome/free-regular-svg-icons";
 import { faStar, faStarHalfAlt } from "@fortawesome/free-solid-svg-icons";
 library.add(faStar, faStarHalfAlt, far);
 
-function StarProduct({ star }) {
+function StarProduct({ star, color = "text-red-500" }) {
   const stars = [];
   for (let i = 1; i <= 5; i++) {
     if (i <= star) {
@@ -19,7 +19,7 @@ function StarProduct({ star }) {
   return (
     <ul>
       {stars.map((star, index) => (
-        <li className="inline-block text-red-500 text-lg" key={index}>
+        <li className={`inline-block text-lg ${color}`} key={index}>
           {star}
         </li>
       ))}

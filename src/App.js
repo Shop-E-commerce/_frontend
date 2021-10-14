@@ -1,12 +1,22 @@
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+
 import "./css/App.css";
 import DefaultLayout from "./layout/DefaultLayout";
-import Home from "./views/pages/Home";
+import { Home, Shop, Blog, About, Contact } from "./views/pages";
 
 function App() {
   return (
-    <DefaultLayout>
-      <Home />
-    </DefaultLayout>
+    <Router>
+      <DefaultLayout>
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route path="/shop" component={Shop} />
+          <Route path="/blog" component={Blog} />
+          <Route path="/about" component={About} />
+          <Route path="/contact" component={Contact} />
+        </Switch>
+      </DefaultLayout>
+    </Router>
   );
 }
 

@@ -17,4 +17,7 @@
   br {
     @apply leading-6;
   }
+  body {
+    @apply text-sm;
+  }
 }

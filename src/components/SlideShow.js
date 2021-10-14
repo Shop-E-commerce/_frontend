@@ -76,7 +76,7 @@ function SimpleSlider() {
           </React.Fragment>
         )}
       </SwiperSlide>
-      <SwiperSlide className="relative lg:min-h-[695px] md:min-h-[430px] min-h-[380px] bg-5 bg-cover bg-center bg-no-repeat">
+      <SwiperSlide className="relative lg:min-h-[695px] md:min-h-[430px] min-h-[380px] bg-5 bg-cover lg:bg-center bg-left bg-no-repeat">
         {({ isActive }) => (
           <React.Fragment>
             <div

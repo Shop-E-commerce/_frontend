@@ -1,10 +1,11 @@
 import React from "react";
+import { BrowserRouter as Router, Link } from "react-router-dom";
 import "../css/AppHeader.css";
 import Logo from "../assets/img/logo.png";
 import SearchBar from "./SearchBar";
 const AppHeader = () => {
   // set state
-  const [search, openSearch] = React.useState("");
+  const [search, setSearch] = React.useState(false);
 
   window.addEventListener("scroll", checkpageYOffset);
   window.addEventListener("onload", checkpageYOffset);
@@ -19,7 +20,7 @@ const AppHeader = () => {
   }
 
   function setSearchBar(e) {
-    openSearch(e);
+    setSearch(e);
     if (e === false) {
       document.querySelector("body").classList.remove("overflow-hidden");
     } else {
@@ -211,19 +212,13 @@ const AppHeader = () => {
         <nav className="lg:block hidden">
           <ul className="flex justify-center items-center text-sm">
             <li className="mr-10 text-primary hover:text-prihover">
-              <a
-                href="javacsript:void(0)"
-                className="py-5 uppercase flex items-center"
-              >
+              <Link className="py-5 uppercase flex items-center" to="/">
                 Home
-              </a>
+              </Link>
             </li>
             <li className="mr-10 text-primary hover:text-prihover">
-              <a
-                href="javacsript:void(0)"
-                className="py-5 uppercase flex items-center"
-              >
-                shop
+              <Link className="py-5 uppercase flex items-center" to="/shop">
+                Shop
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="h-[14px] w-[14px] ml-[5px]"
@@ -238,56 +233,41 @@ const AppHeader = () => {
                     d="M19 9l-7 7-7-7"
                   />
                 </svg>
-              </a>
+              </Link>
             </li>
             <li className="mr-10 text-primary hover:text-prihover">
-              <a
-                href="javacsript:void(0)"
-                className="py-5 uppercase flex items-center"
-              >
+              <Link className="py-5 uppercase flex items-center" to="/blog">
                 Blog
-              </a>
+              </Link>
             </li>
             <li className="mr-10 text-primary hover:text-prihover">
-              <a
-                href="javacsript:void(0)"
-                className="py-5 uppercase flex items-center"
-              >
-                About us
-              </a>
+              <Link className="py-5 uppercase flex items-center" to="/about">
+                About Us
+              </Link>
             </li>
             <li className="mr-10 text-primary hover:text-prihover">
-              <a
-                href="javacsript:void(0)"
-                className="py-5 uppercase flex items-center"
-              >
+              <Link className="py-5 uppercase flex items-center" to="/contact">
                 Contact us
-              </a>
+              </Link>
             </li>
           </ul>
         </nav>
         <div className="hidden fixed top-0 left-0 right-0 menu-sticky shadow-sm duration-300 z-[99] bg-white py-2">
           <div className="flex justify-between items-center container">
             <div className="px-4">
-              <a href="javacsript:void(0)">
+              <Link to="/">
                 <img src={Logo} alt="Met Clothing" className="w-[120px]" />
-              </a>
+              </Link>
             </div>
             <nav className="px-4 lg:block hidden">
               <ul className="flex justify-center items-center text-sm">
                 <li className="mr-10 text-primary hover:text-prihover">
-                  <a
-                    href="javacsript:void(0)"
-                    className="py-5 uppercase flex items-center"
-                  >
+                  <Link to="/" className="py-5 uppercase flex items-center">
                     Home
-                  </a>
+                  </Link>
                 </li>
                 <li className="mr-10 text-primary hover:text-prihover">
-                  <a
-                    href="javacsript:void(0)"
-                    className="py-5 uppercase flex items-center"
-                  >
+                  <Link to="/shop" className="py-5 uppercase flex items-center">
                     shop
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -303,31 +283,28 @@ const AppHeader = () => {
                         d="M19 9l-7 7-7-7"
                       />
                     </svg>
-                  </a>
+                  </Link>
                 </li>
                 <li className="mr-10 text-primary hover:text-prihover">
-                  <a
-                    href="javacsript:void(0)"
-                    className="py-5 uppercase flex items-center"
-                  >
+                  <Link to="/blog" className="py-5 uppercase flex items-center">
                     Blog
-                  </a>
+                  </Link>
                 </li>
                 <li className="mr-10 text-primary hover:text-prihover">
-                  <a
-                    href="javacsript:void(0)"
+                  <Link
+                    to="/about"
                     className="py-5 uppercase flex items-center"
                   >
                     About us
-                  </a>
+                  </Link>
                 </li>
                 <li className="mr-10 text-primary hover:text-prihover">
-                  <a
-                    href="javacsript:void(0)"
+                  <Link
+                    to="/contact"
                     className="py-5 uppercase flex items-center"
                   >
                     Contact us
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </nav>
