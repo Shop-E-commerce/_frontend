@@ -1,0 +1,10 @@
+.input-range__track {
+  @apply h-2.5;
+}
+.input-range__track--active {
+  @apply bg-secondary;
+}
+.input-range__slider {
+  @apply w-5 h-5 border-4 border-secondary bg-white leading-[15px] mt-[-14px];
+  touch-action: none;
+}

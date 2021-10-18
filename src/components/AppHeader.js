@@ -1,15 +1,18 @@
 import React from "react";
+import { useEffect, useState } from "react";
 import { BrowserRouter as Router, Link } from "react-router-dom";
 import "../css/AppHeader.css";
 import Logo from "../assets/img/logo.png";
 import SearchBar from "./SearchBar";
 const AppHeader = () => {
   // set state
-  const [search, setSearch] = React.useState(false);
+  const [search, setSearch] = useState(false);
 
-  window.addEventListener("scroll", checkpageYOffset);
-  window.addEventListener("onload", checkpageYOffset);
-  // add class flex to class menu-sticky when window scroll or window offset > 300
+  useEffect(() => {
+    window.addEventListener("scroll", checkpageYOffset);
+    window.addEventListener("onload", checkpageYOffset);
+  }, []);
+
   function checkpageYOffset() {
     let menu_sticky = document.querySelector(".menu-sticky");
     if (window.pageYOffset > 200) {
@@ -19,7 +22,7 @@ const AppHeader = () => {
     }
   }
 
-  function setSearchBar(e) {
+  function handleSearch(e) {
     setSearch(e);
     if (e === false) {
       document.querySelector("body").classList.remove("overflow-hidden");
@@ -341,7 +344,7 @@ const AppHeader = () => {
                     <a
                       href="#searhBar"
                       className=""
-                      onClick={() => setSearchBar(!search)}
+                      onClick={() => handleSearch(!search)}
                     >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -364,7 +367,7 @@ const AppHeader = () => {
             </div>
           </div>
         </div>
-        <SearchBar open={search} onClick={() => setSearchBar(!search)} />
+        <SearchBar open={search} onClick={() => handleSearch(!search)} />
       </div>
     </header>
   );

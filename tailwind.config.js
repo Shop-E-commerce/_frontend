@@ -48,6 +48,10 @@ module.exports = {
         initial: "initial",
         slideInDown: ".8s ease-in-out 0s normal none running slideInDown",
       },
+      transitionProperty: {
+        maxHeight: "max-height",
+        height: "height",
+      },
     },
   },
   variants: {
